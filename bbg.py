@@ -49,7 +49,7 @@ COMMASPACE = ', '
 # VIDEO_YUV_RAW
 # VIDEO_YUV_RGB
 
-class Vahey:
+class BBG:
 
     capture_folder = 'captures'
     filename_format = '%s.png'
@@ -133,5 +133,5 @@ class Vahey:
 
 
 if __name__ == '__main__':
-    vah = Vahey()
-    vah.start()
+    bbg = BBG()
+    bbg.start()
