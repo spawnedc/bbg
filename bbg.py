@@ -86,13 +86,18 @@ class BBG:
         return (filename, frame)
 
     def get_diff(self, delay=0.5):
+        print 'Capturing first image'
         filename1, frame1 = self.capture_image('1')
+        print 'Sleeping for %s' % delay
         sleep(delay)
+        print 'Capturing second image'
         filename2, frame2 = self.capture_image('2')
 
+        print 'Setting images'
         self.image1 = Image.open(filename1)
         self.image2 = Image.open(filename2)
 
+        print 'Getting image diff'
         self.diff = motion.images_diff(self.image1, self.image2)
         return self.diff
 
