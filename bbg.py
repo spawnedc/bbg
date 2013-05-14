@@ -122,10 +122,13 @@ class BBG:
             print error_msg
 
     def start(self):
+        print 'Starting loop'
         while True:
+            print 'Getting diff'
             diff = self.get_diff()
 
             if diff > self.sensitivity:
+                print 'Motion detected'
                 logging.warning('Motion detected! (%s)' % diff)
 
                 self.send_email(self.image2)
@@ -133,7 +136,7 @@ class BBG:
                 filename, frame = self.capture_image()
 
             else:
-                logging.warning('Nothing yet. (%s)' % diff)
+                print 'Nothing yet. (%s)' % diff
 
 
 if __name__ == '__main__':
