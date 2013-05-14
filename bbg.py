@@ -76,12 +76,17 @@ class BBG:
         if not filename:
             filename = datetime.now().strftime(self.datetime_format)
 
+        print 'Setting filename'
         filename = os.path.join(self.capture_folder, self.filename_format % filename)
 
+        print 'Getting sync rgb video'
         rgb, _ = freenect.sync_get_video()
+        print 'Creating numpy array'
         na = np.array(rgb[::1,::-1,::-1])
+        print 'Fetching frame'
         frame = cv.fromarray(na)
 
+        print 'Saving actual image'
         cv.SaveImage(filename, frame)
         return (filename, frame)
 
