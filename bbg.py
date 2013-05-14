@@ -60,12 +60,16 @@ class BBG:
 
     def __init__(self, cam=-1):
         # Initialize freenect and get the context
+        print 'Initalize kinect'
         context = freenect.init()
         # Open the device and get the device
+        print 'Open device'
         self.kinect = freenect.open_device(context, 0)
         # Turn the led off
+        print 'Turning the led off'
         freenect.set_led(self.kinect, freenect.LED_OFF)
         # Close the device
+        print 'Closing the device'
         freenect.close_device(self.kinect)
 
     def capture_image(self, filename=None):
